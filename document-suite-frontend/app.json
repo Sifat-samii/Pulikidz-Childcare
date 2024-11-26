@@ -2,7 +2,7 @@
   "expo": {
     "name": "document-suite-frontend",
     "slug": "document-suite-frontend",
-    "version": "1.0.0",
+    "version": "52.0.11",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

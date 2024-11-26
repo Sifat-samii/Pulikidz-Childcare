@@ -8,5 +8,6 @@
   "include": [
     "src/**/*.tsx",
     "src/**/*.ts"
-  ]
+  ],
+  "extends": "expo/tsconfig.base"
 }
