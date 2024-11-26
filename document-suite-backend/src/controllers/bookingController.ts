@@ -1,17 +1,22 @@
 import { Request, Response } from "express";
+import { createBookingService, getBookingsService } from "../services/bookingService";
 
+// Get all bookings
 export const getBookings = async (req: Request, res: Response) => {
   try {
-    // Placeholder logic for fetching bookings from the database
-    const bookings = await fetchBookingsFromDatabase(); // Replace with actual DB logic
-    res.status(200).json(bookings);
+    const bookings = await getBookingsService();
+    res.json(bookings);
   } catch (error) {
-    res.status(500).send("Error fetching bookings");
+    res.status(500).json({ message: "Failed to fetch bookings", error });
   }
 };
 
-// Example placeholder function for DB fetching
-const fetchBookingsFromDatabase = async () => {
-  // Simulating fetching bookings from DB
-  return [{ id: 1, name: "John Doe", date: "2024-11-26" }];
+// Create a new booking
+export const createBooking = async (req: Request, res: Response) => {
+  try {
+    const newBooking = await createBookingService(req.body);
+    res.status(201).json(newBooking);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to create booking", error });
+  }
 };

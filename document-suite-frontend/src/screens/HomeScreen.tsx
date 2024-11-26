@@ -1,10 +1,14 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Childcare Management App</Text>
+      <Text style={styles.title}>Welcome to Pulikids Childcare Management!</Text>
+      <Button
+        title="Book a Caregiver"
+        onPress={() => navigation.navigate("Booking")}
+      />
     </View>
   );
 };
@@ -12,12 +16,14 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f8f9fa",
   },
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+    color: "#333",
   },
 });
 

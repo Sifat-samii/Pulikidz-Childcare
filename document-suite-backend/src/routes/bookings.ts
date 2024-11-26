@@ -1,10 +1,17 @@
 import express from "express";
-import { authMiddleware } from "../middlewares/auth"; // Import auth middleware
-import { getBookings } from "../controllers/bookingController"; // Import controller functions (make sure they exist)
-
 const router = express.Router();
 
-// Define a protected route for getting bookings
-router.get("/", authMiddleware, getBookings); // Apply authMiddleware to protect this route
+// Example route for creating a new booking
+router.post("/", async (req, res) => {
+  const { childName, caregiverId, timeSlot } = req.body;
+  // Logic to save booking to the database
+  res.status(201).send({ message: "Booking created successfully" });
+});
+
+// Example route for viewing all bookings
+router.get("/", async (req, res) => {
+  // Logic to fetch all bookings from the database
+  res.status(200).send([{ childName: "John Doe", caregiverId: 1, timeSlot: "10:00 AM" }]);
+});
 
 export default router;
